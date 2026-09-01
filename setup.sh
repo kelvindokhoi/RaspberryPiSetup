@@ -2,7 +2,7 @@
 
 # basic tool setup
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y git curl htop tmux
+sudo apt install -y git curl htop tmux pipx
 
 # Enable OLED I2C screen and CC1101 Sub-GHz module SPI, which is turned off by default
 sudo raspi-config nonint do_i2c 0
@@ -14,4 +14,9 @@ curl http://cdn.pisugar.com/release/pisugar-power-manager.sh | sudo bash
 
 # Install wireless and hardware hacking tooling
 sudo apt install -y python3-pip python3-smbus python3-spidev python3-rpi.gpio aircrack-ng tshark wireless-tools
-sudo apt install -y nmap sqlmap mitmproxy hcxdumptool hcxtools i2c-tools flashrom picocom reaver
+sudo apt install -y nmap sqlmap hcxdumptool hcxtools i2c-tools flashrom picocom reaver
+
+#install mitmproxy
+pipx ensurepath
+pipx install mitmproxy
+source ~/.bashrc #reload shell
