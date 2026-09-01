@@ -14,9 +14,15 @@ curl http://cdn.pisugar.com/release/pisugar-power-manager.sh | sudo bash
 
 # Install wireless and hardware hacking tooling
 sudo apt install -y python3-pip python3-smbus python3-spidev python3-rpi.gpio aircrack-ng tshark wireless-tools
-sudo apt install -y nmap sqlmap hcxdumptool hcxtools i2c-tools flashrom picocom reaver
+sudo apt install -y nmap sqlmap hcxdumptool hcxtools i2c-tools flashrom picocom reaver fail2ban ufw
 
-#install mitmproxy
+# Install mitmproxy
 pipx ensurepath
 pipx install mitmproxy
 source ~/.bashrc #reload shell
+
+# Setup firewall
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw enable
